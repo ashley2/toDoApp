@@ -1,12 +1,78 @@
 *{
   text-align: center;
-}
-
-
-table, tr, td, th {
-  border: 2px solid black;
-  background-color: grey;
+  font-family : 'Raleway', sans-serif;
   color: black;
 }
 
+#header {
+  font-size: 60px;
+  color: green;
+}
+table, thead, tr, td, th {
+  border: 2px solid black;
+  background-color: lightgreen;
+  color: black;
+  text-align: center;
+}
 
+table {
+  box-shadow: 10px 10px 20px black;
+  margin-top: 100px;
+}
+
+td {
+  height: 50px;
+  width: 200px;
+}
+
+th {
+  background-color: green;
+}
+
+#addTask {
+  color: #fff;
+  height: 50px;
+  width: 100px;
+  text-shadow: -2px 2px #346392;
+  background-color: #008000;
+  background-image: linear-gradient(top, #6496c8, #346392);
+  box-shadow: inset 0 0 0 1px #27496d;
+  border: none;
+  border-radius: 15px;
+  transition: background-color 2s ease;
+}
+
+#addTask:hover {
+  color:white;
+  box-shadow: inset 0 0 0 1px #27496d,0 5px 15px #193047;
+}
+
+#addTask:active {
+  box-shadow: inset 0 0 0 1px #27496d,inset 0 5px 30px #193047;
+}
+#addTask:focus {
+  outline: none;
+}
+
+#remove {
+  color: #fff;
+  height: 40px;
+  width: 40px;
+  text-shadow: -2px 2px #346392;
+  background-color: #008000;
+  background-image: linear-gradient(top, #6496c8, #346392);
+  box-shadow: inset 0 0 0 1px #27496d;
+  border: none;
+  border-radius: 15px;
+}
+
+#remove:hover {
+  box-shadow: inset 0 0 0 1px #27496d,0 5px 15px #193047;
+}
+
+#remove:active {
+  box-shadow: inset 0 0 0 1px #27496d,inset 0 5px 30px #193047;
+}
+#remove:focus {
+  outline: none;
+}

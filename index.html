@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Express!</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
   <link rel="stylesheet" href="style.css">
@@ -16,14 +18,15 @@
   <body>
 
     <div id="header">To Do!</div>
+    <div id="directions">Add and delete as many tasks as you want!</div>
     <input type="text" placeholder="Task" id="task">
     <input type="date" id="dueDate">
     <button id="addTask">Add Task</button>
-
-<table>
+<div>
+<table align="center">
   <thead>
     <tr>
-      <th>Desc</th>
+      <th>Task</th>
       <th>Due Date</th>
       <th>Complete?</th>
       <th>Remove</th>
@@ -37,11 +40,13 @@
       <input type="checkbox" id"checkbox">
     </td>
     <td>
-      <button class="delete" id="remove">X</button>
+      <button class="delete" id="remove"><i class="fa fa-trash fa-lg"></i>
+</button>
     </td>
   </tr>
   </tbody>
 </table>
+</div>
 
   </body>
   </html>
