@@ -53,16 +53,11 @@ function getAllTodos(todos){
 
 function  addTask(){
   var task = $('#task').val();
-  console.log('task ' , task);
-
   var dueDate = $('#dueDate').val();
-  console.log('dueDate ' , dueDate);
-
   var obj = {task: task, dueDate: dueDate}
-
   var url = '/todos'
   $.post(url, obj)
-  .success(function getAllTodos(){
+  .success(function getAllTodos(todos){
 
   })
   .error(function(err){
@@ -72,7 +67,6 @@ function  addTask(){
 
 function deleteTask(){
  var info = $(this).closest('tr').data('index')
- console.log(info)
 
 }
 
