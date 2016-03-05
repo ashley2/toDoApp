@@ -5,6 +5,7 @@ $(document).ready(init);
 function init(){
   getAllTodos();
   $('#addTask').click(addTask);
+  $('#todoTable').on('click', '.delete', deleteTask);
 }
 
 
@@ -21,9 +22,8 @@ function getAllTodos(todos){
      $tr.find('.desc').text(todo.task);
      $tr.find('.dueDate').text(todo.dueDate)
      $tr.find('input').prop('checked', todo.isComplete);
-     $(this).find('tr').data('index', i)
+     $tr.data('index', i)
      trs.push($tr);
-     console.log('tr', trs)
    })
 
     $('#todoTable').append(trs);
@@ -68,6 +68,11 @@ function  addTask(){
   });
 }
 
+function deleteTask(){
+$(this).closest('trs').data('index')
+console.log($(this))
+
+}
 
 
 
