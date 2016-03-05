@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Express!</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <script src="main.js"></script>
+<!-- 
+    url: localhost:8888/main.js
+
+    filepath:    /public/main.js -->
+  </head>
+  <body>
+
+    <div id="header">To Do!</div>
+    <input type="text" placeholder="Task" id="task">
+    <input type="date" id="todoDate">
+    <button id="addTask">Add Task</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>Desc</th>
+      <th>Due Date</th>
+      <th>Complete?</th>
+      <th>Remove</th>
+    </tr>
+  </thead>
+  <tbody id="todoTable">
+  <tr id="template">
+    <td class="desc">Buy Eggs</td>
+    <td class="dueDate"></td>
+    <td>
+      <input type="checkbox">
+    </td>
+    <td>
+      <button id="remove">X</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+  </body>
+  </html>
