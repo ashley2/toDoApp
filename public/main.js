@@ -28,6 +28,7 @@ function getAllTodos(todos){
     trs.push($tr);
   })
 
+   // ($trs).addClass('animated fadeIn')
    $('#todoTable').html(trs);
 
 
@@ -40,6 +41,7 @@ function getAllTodos(todos){
 
 function  addTask(){
   var task = $('#task').val();
+  $('#task').val(" ");
   var dueDate = $('#dueDate').val();
   var obj = {task: task, dueDate: dueDate}
   var url = '/todos'
