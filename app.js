@@ -45,6 +45,14 @@ app.post('/todos', function(req, res){
 });
 
 
+app.delete('/todos/delete/:index', function(req, res){
+  var index = req.params.index
+  todoArr.splice(index,1);
+  fs.writeFile('todos.json', JSON.stringify(todoArr), function(err){
+    res.send(todoArr)
+  })
+})
+
 
 
 var server = http.createServer(app); //creating our server
@@ -54,11 +62,6 @@ server.listen(PORT, function(){   //this is the same as saying app.listen()but d
 });
 
 
-
-app.delete(`/todos/delete/${index}`, function(req, res){
-  // req.params.index
-  console.log('req.params.index ' , req.params.index);
-})
 
 // app.get('/time', function(res, req){
 //   var timestamp = Date.now();

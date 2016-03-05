@@ -62,7 +62,7 @@ function deleteTask(){
     index: index
   },
   success: function(data){
-
+    getAllTodos()
 
   },
   error: function(err){
