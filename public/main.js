@@ -4,7 +4,7 @@ $(document).ready(init);
 
 function init(){
   getAllTodos();
-  $('#addName').click(addName);
+  $('#addTask').click(addTask);
 }
 
 
@@ -17,7 +17,7 @@ function getAllTodos(todos){
     var $todos = todos.map(function(todo){
       var $todo = $('#template').clone();
       $todo.removeAttr('id');
-      $todo.find('.desc').text(todo.desc);
+      $todo.find('.desc').text(todos.desc);
       $todo.find('.dueDate').text($todos)
       $todo.find('input').prop('checked', todo.isComplete);
       return $todo;
@@ -30,8 +30,11 @@ function getAllTodos(todos){
 }
 
 
-function  addName(){
-  var name =$('#newName').val();
+function  addTask(){
+  var task = $('#addTask').val();
+  console.log('task ' , task);
+  var dueDate = $('#dueDate').val();
+  console.log('dueDate ' , dueDate);
 }
 
 //   $.ajax({
