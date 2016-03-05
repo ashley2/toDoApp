@@ -1,10 +1,12 @@
 'use strict'
 
 $(document).ready(init);
+var $trTemplate;
 
 function init(){
-  getAllTodos();
+  // getAllTodos();
   $('#addTask').click(addTask);
+  $trTemplate = $('#template').remove();
   $('#todoTable').on('click', '.delete', deleteTask);
 }
 
@@ -15,18 +17,18 @@ function getAllTodos(todos){
   .success(function(todos){
 
 
-    var trs = [];
-    todos.forEach(function(todo, i){
-     var $tr = $('#template').clone();
-     $tr.removeAttr('id');
-     $tr.find('.desc').text(todo.task);
-     $tr.find('.dueDate').text(todo.dueDate)
-     $tr.find('input').prop('checked', todo.isComplete);
-     $tr.data('index', i)
-     trs.push($tr);
-   })
+   var trs = [];
+   todos.forEach(function(todo, i){
+    var $tr = $trTemplate.clone();
+    $tr.removeAttr('id');
+    $tr.find('.desc').text(todo.task);
+    $tr.find('.dueDate').text(todo.dueDate)
+    $tr.find('input').prop('checked', todo.isComplete);
+    $tr.data('index', i)
+    trs.push($tr);
+  })
 
-    $('#todoTable').append(trs);
+   $('#todoTable').append(trs);
 
 
     // var $todos = todos.map(function(todo){
@@ -60,7 +62,7 @@ function  addTask(){
 
   var url = '/todos'
   $.post(url, obj)
-  .success(function(todos){
+  .success(function getAllTodos(){
 
   })
   .error(function(err){
@@ -69,8 +71,8 @@ function  addTask(){
 }
 
 function deleteTask(){
-$(this).closest('trs').data('index')
-console.log($(this))
+ var info = $(this).closest('tr').data('index')
+ console.log(info)
 
 }
 

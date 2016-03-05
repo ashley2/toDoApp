@@ -27,8 +27,7 @@ app.use(bodyParser.json());
 //3. send the data - can send obj and arrays
 app.get('/todos', function(req, res){
   fs.readFile(todosFilename, function(err, data){ //have the data
-    console.log(data);
-    var todoArr = JSON.parse(data) //parse the data
+    todoArr = JSON.parse(data) //parse the data
     res.send(todoArr); //send the data
   })
 })
@@ -40,9 +39,7 @@ app.get('/', function(req, res, next){
 app.post('/todos', function(req, res){
   req.body.isCommpleted = false
   todoArr.push(req.body)
-  console.log(todoArr)
   fs.writeFile('todos.json', JSON.stringify(todoArr), function(err){
-    console.log('done');
     res.send(todoArr)
   });
 });
