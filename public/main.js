@@ -31,11 +31,29 @@ function getAllTodos(todos){
 
 
 function  addTask(){
-  var task = $('#addTask').val();
+  var task = $('#task').val();
   console.log('task ' , task);
+
   var dueDate = $('#dueDate').val();
   console.log('dueDate ' , dueDate);
+
+  var obj = {task: task, dueDate: dueDate}
+
+  var url = '/todos'
+  $.post(url, obj)
+  .success(function(todos){
+
+
+
+
+
+  })
+
+
 }
+
+
+
 
 //   $.ajax({
 //     method: 'POST',
