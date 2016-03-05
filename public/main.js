@@ -3,7 +3,7 @@
 $(document).ready(init);
 
 function init(){
-  // getAllTodos();
+  getAllTodos();
   $('#addTask').click(addTask);
 }
 
@@ -14,19 +14,38 @@ function getAllTodos(todos){
   .success(function(todos){
 
 
-    var $todos = todos.map(function(todo){
-      var $todo = $('#template').clone();
-      $todo.removeAttr('id');
-      $todo.find('.desc').text(todos.desc);
-      $todo.find('.dueDate').text($todos)
-      $todo.find('input').prop('checked', todo.isComplete);
-      return $todo;
+    var trs = [];
+    todos.forEach(function(todo, i){
+     var $tr = $('#template').clone();
+     $tr.removeAttr('id');
+     $tr.find('.desc').text(todo.task);
+     $tr.find('.dueDate').text(todo.dueDate)
+     $tr.find('input').prop('checked', todo.isComplete);
+     $(this).find('tr').data('index', i)
+     trs.push($tr);
+     console.log('tr', trs)
+   })
 
-    })
+    $('#todoTable').append(trs);
 
-    $('#todoTable').append($todos);
+
+    // var $todos = todos.map(function(todo){
+    //   var $todo = $('#template').clone();
+    //   $todo.removeAttr('id');
+    //   $todo.find('.desc').text(todos.task);
+    //   $todo.find('.dueDate').text($todo.dueDate)
+    //   $todo.find('#checkbox').prop('checked', todo.isComplete);
+    //   console.log('todo', todo)
+    //   return $todo;
+
+    // })
+
+    // $('#todoTable').append($todos);
 
   })
+  .error(function(err){
+    console.log(err);
+  });
 }
 
 
@@ -43,13 +62,10 @@ function  addTask(){
   $.post(url, obj)
   .success(function(todos){
 
-
-
-
-
   })
-
-
+  .error(function(err){
+    console.log(err);
+  });
 }
 
 

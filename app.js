@@ -28,8 +28,8 @@ app.use(bodyParser.json());
 app.get('/todos', function(req, res){
   fs.readFile(todosFilename, function(err, data){ //have the data
     console.log(data);
-    var todos = JSON.parse(data) //parse the data
-    res.send(todos); //send the data
+    var todoArr = JSON.parse(data) //parse the data
+    res.send(todoArr); //send the data
   })
 })
 
@@ -38,9 +38,10 @@ app.get('/', function(req, res, next){
 });
 
 app.post('/todos', function(req, res){
+  req.body.isCommpleted = false
   todoArr.push(req.body)
   console.log(todoArr)
-  fs.writeFile('./todos.json', JSON.stringify(todoArr), function(err){
+  fs.writeFile('todos.json', JSON.stringify(todoArr), function(err){
     console.log('done');
     res.send(todoArr)
   });
@@ -57,6 +58,10 @@ server.listen(PORT, function(){   //this is the same as saying app.listen()but d
 
 
 
+app.delete('/todos/:index', function(req, res){
+  req.params
+  req.params.index
+})
 
 // app.get('/time', function(res, req){
 //   var timestamp = Date.now();
@@ -64,10 +69,6 @@ server.listen(PORT, function(){   //this is the same as saying app.listen()but d
 // });
 
 
-// app.delete('/todos/:index', function(req, res){
-//   req.params
-//   req.params.index
-// })
 
 // //push the newName into the array
 // app.post('/names', function(req, res, next){
