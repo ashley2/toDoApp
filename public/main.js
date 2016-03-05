@@ -4,7 +4,7 @@ $(document).ready(init);
 var $trTemplate;
 
 function init(){
-  // getAllTodos();
+  getAllTodos();
   $('#addTask').click(addTask);
   $trTemplate = $('#template').remove();
   $('#todoTable').on('click', '.delete', deleteTask);
@@ -28,23 +28,10 @@ function getAllTodos(todos){
     trs.push($tr);
   })
 
-   $('#todoTable').append(trs);
+   $('#todoTable').html(trs);
 
 
-    // var $todos = todos.map(function(todo){
-    //   var $todo = $('#template').clone();
-    //   $todo.removeAttr('id');
-    //   $todo.find('.desc').text(todos.task);
-    //   $todo.find('.dueDate').text($todo.dueDate)
-    //   $todo.find('#checkbox').prop('checked', todo.isComplete);
-    //   console.log('todo', todo)
-    //   return $todo;
-
-    // })
-
-    // $('#todoTable').append($todos);
-
-  })
+ })
   .error(function(err){
     console.log(err);
   });
@@ -57,8 +44,8 @@ function  addTask(){
   var obj = {task: task, dueDate: dueDate}
   var url = '/todos'
   $.post(url, obj)
-  .success(function getAllTodos(todos){
-
+  .success(function(todos){
+    getAllTodos()
   })
   .error(function(err){
     console.log(err);
@@ -66,24 +53,21 @@ function  addTask(){
 }
 
 function deleteTask(){
- var info = $(this).closest('tr').data('index')
+ var index = $(this).closest('tr').data('index')
+ var url =`/todos/delete/${index}`;
+ $.ajax({
+  method: 'DELETE',
+  url: url,
+  data: {
+    index: index
+  },
+  success: function(data){
 
+
+  },
+  error: function(err){
+
+  }
+});
 }
 
-
-
-//   $.ajax({
-//     method: 'POST',
-//     url: '/names',
-//     data: {
-//       newName: name
-//     },
-//     success: function(data){
-//       console.log('data ' , data);
-
-//     },
-//     error: function(err){
-
-//     }
-//   });
-// }

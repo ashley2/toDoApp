@@ -55,9 +55,9 @@ server.listen(PORT, function(){   //this is the same as saying app.listen()but d
 
 
 
-app.delete('/todos/:index', function(req, res){
-  req.params
-  req.params.index
+app.delete(`/todos/delete/${index}`, function(req, res){
+  // req.params.index
+  console.log('req.params.index ' , req.params.index);
 })
 
 // app.get('/time', function(res, req){
