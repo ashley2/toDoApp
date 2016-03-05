@@ -1,6 +1,8 @@
 'use strict'
 
 const PORT = 8888
+// const namesFilename = '/names.json'
+const todosFilename = './todos.json'
 
 var express = require('express');
 var http = require('http');
@@ -10,6 +12,8 @@ var fs = require('fs')
 
 
 var app = express();
+
+var todoArr = [];
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -22,7 +26,7 @@ app.use(bodyParser.json());
 //2. parse the data into the array
 //3. send the data - can send obj and arrays
 app.get('/todos', function(req, res){
-  fs.readFile('./todos.json', function(err, data){ //have the data
+  fs.readFile(todosFilename, function(err, data){ //have the data
     console.log(data);
     var todos = JSON.parse(data) //parse the data
     res.send(todos); //send the data
@@ -34,10 +38,11 @@ app.get('/', function(req, res, next){
 });
 
 app.post('/todos', function(req, res){
-  console.log(req.body)
-  fs.writeFile('./todos.json', JSON.stringify(req.body), function(err){
+  todoArr.push(req.body)
+  console.log(todoArr)
+  fs.writeFile('todos.json', JSON.stringify(req.body), function(err){
     console.log('done');
-    // res.send('posted!')
+    res.send('posted!')
   });
 });
 
