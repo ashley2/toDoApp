@@ -13,7 +13,7 @@ var fs = require('fs')
 
 var app = express();
 
-var todoArr = [];
+var todoArr = []
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -40,9 +40,9 @@ app.get('/', function(req, res, next){
 app.post('/todos', function(req, res){
   todoArr.push(req.body)
   console.log(todoArr)
-  fs.writeFile('todos.json', JSON.stringify(req.body), function(err){
+  fs.writeFile('./todos.json', JSON.stringify(todoArr), function(err){
     console.log('done');
-    res.send('posted!')
+    res.send(todoArr)
   });
 });
 
