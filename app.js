@@ -26,9 +26,9 @@ app.use(bodyParser.json());
 //2. parse the data into the array
 //3. send the data - can send obj and arrays
 app.get('/todos', function(req, res){
-  fs.readFile(todosFilename, function(err, data){ //have the data
-    todoArr = JSON.parse(data) //parse the data
-    res.send(todoArr); //send the data
+  fs.readFile(todosFilename, function(err, data){ 
+    todoArr = JSON.parse(data) 
+    res.send(todoArr); 
   })
 })
 
@@ -55,9 +55,9 @@ app.delete('/todos/delete/:index', function(req, res){
 
 
 
-var server = http.createServer(app); //creating our server
+var server = http.createServer(app); 
 
-server.listen(PORT, function(){   //this is the same as saying app.listen()but dont use it 
+server.listen(PORT, function(){    
   console.log(`Server listening on port ${PORT}`)
 });
 

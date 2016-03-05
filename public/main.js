@@ -41,7 +41,7 @@ function getAllTodos(todos){
 
 function  addTask(){
   var task = $('#task').val();
-  $('#task').val(" ");
+  $('#task').val(' ');
   var dueDate = $('#dueDate').val();
   var obj = {task: task, dueDate: dueDate}
   var url = '/todos'
