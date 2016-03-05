@@ -4,11 +4,22 @@
   color: black;
 }
 
+#top {
+  background-color:  #e6e6e6;
+  height: 140px;
+  width: 100vw;
+  margin-bottom: 10px;
+}
+input {
+  border: 2px solid green;
+  height: 40px;
+border-radius: 15px;
+}
 #header {
   font-size: 60px;
   color: green;
 }
-table, thead, tr, td, th {
+table, thead, tr, td,th {
   border: 2px solid black;
   background-color: lightgreen;
   color: black;
@@ -27,11 +38,16 @@ td {
 
 th {
   background-color: green;
+  height: 20px;
+  width: 200px;
+  text-align: center;
+  /*border-bottom: black;*/
 }
 
 #addTask {
   color: #fff;
-  height: 50px;
+  margin-top:10px;
+  height: 40px;
   width: 100px;
   text-shadow: -2px 2px #346392;
   background-color: #008000;

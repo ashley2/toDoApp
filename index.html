@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Express!</title>
+  <title>To do List</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
@@ -18,36 +18,39 @@
   </head>
   <body>
 
-    <div id="header">To Do!</div>
-    <div id="directions">Add and delete as many tasks as you want!</div>
+  <div id="top">
+      <div id="header">Do Some Stuff!</div>
+      <div id="directions">Add and delete as many tasks as you want!</div>
+    </div>
     <input type="text" placeholder="Task" id="task">
     <input type="date" id="dueDate">
+    <br>
     <button id="addTask">Add Task</button>
-<div>
-<table align="center">
-  <thead>
-    <tr>
-      <th>Task</th>
-      <th>Due Date</th>
-      <th>Complete?</th>
-      <th>Remove</th>
-    </tr>
-  </thead>
-  <tbody id="todoTable">
-  <tr id="template">
-    <td class="desc"></td>
-    <td class="dueDate"></td>
-    <td>
-      <input type="checkbox" id"checkbox">
-    </td>
-    <td>
-      <button class="delete" id="remove"><i class="fa fa-trash fa-lg"></i>
-</button>
-    </td>
-  </tr>
-  </tbody>
-</table>
-</div>
+    <div>
+      <table align="center">
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Due Date</th>
+            <th>Complete?</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody id="todoTable">
+          <tr id="template">
+            <td class="desc"></td>
+            <td class="dueDate"></td>
+            <td>
+              <input type="checkbox" id"checkbox">
+            </td>
+            <td>
+              <button class="delete" id="remove"><i class="fa fa-trash fa-lg"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
   </body>
   </html>
